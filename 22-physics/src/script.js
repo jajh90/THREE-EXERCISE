@@ -25,35 +25,34 @@ const playHitSound = (collision) => {
     const impactStrength = collision.contact.getImpactVelocityAlongNormal()
 
     if (impactStrength > 7) {
-        hitSound.volume = 0.7
-        hitSound.currentTime = 0
-        hitSound.play()
-    } else if (impactStrength > 5 && impactStrength < 7) {
         hitSound.volume = 0.5
         hitSound.currentTime = 0
         hitSound.play()
-    } else if (impactStrength > 3 && impactStrength < 5) {
+    } else if (impactStrength > 5 && impactStrength < 7) {
         hitSound.volume = 0.35
         hitSound.currentTime = 0
         hitSound.play()
-    } else if (impactStrength > 1.5 && impactStrength < 3) {
+    } else if (impactStrength > 3 && impactStrength < 5) {
         hitSound.volume = 0.25
         hitSound.currentTime = 0
         hitSound.play()
-    } else if (impactStrength > .7 && impactStrength < 1.5) {
-        hitSound.volume = 0.1
+    } else if (impactStrength > 1.5 && impactStrength < 3) {
+        hitSound.volume = 0.15
         hitSound.currentTime = 0
         hitSound.play()
-    } else {
-        hitSound.volume = 0.03
-        if (hitSound.currentTime > 0.18) {
+    } else if (impactStrength > .7 && impactStrength < 1.5) {
+        hitSound.volume = 0.07
+        hitSound.currentTime = 0
+        hitSound.play()
+    } else if (impactStrength > .3) {
+        hitSound.volume = 0.01
+        if (hitSound.currentTime > 0.25) {
             hitSound.currentTime = 0
             hitSound.play()
         } else {
             hitSound.currentTime = 0
         }
     }
-    console.log(impactStrength)
 }
 
 /**
