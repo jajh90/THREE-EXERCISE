@@ -9,7 +9,9 @@ export default class Time extends EventEmitter {
     this.elapsed = 0;
     this.delta = 16;
 
-    this.tick();
+    window.requestAnimationFrame(() => {
+      this.tick();
+    });
   }
 
   tick() {
